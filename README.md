@@ -43,6 +43,13 @@ On this page, users can select from a variety of PC parts along with pricing opt
 
 ---
 
+### 🛒 Cart Page
+![Cart Preview](./customCPUbuild/design/WhatsApp%20Image%202025-04-20%20at%207.18.21%20PM.jpeg)
+
+The cart shows selected components along with total pricing. Users can modify their cart before proceeding to payment.
+
+---
+
 ### 🔐 Login Page
 ![Login Preview](./design/login.JPG)
 
@@ -50,6 +57,34 @@ This is the login page. Here, the user has entered invalid credentials.
 
 - We implemented user authentication using `PHP $_SESSION` variables.
 - User passwords are securely stored in the database using hashing (e.g., `password_hash()` function).
+
+---
+
+### 💳 Payment Method Page
+![Payment Methods](./design/WhatsApp%20Image%202025-04-20%20at%207.18.23%20PM.jpeg)
+
+The website supports multiple payment options, and Razorpay is used for online transactions.
+
+---
+
+### 🚀 Razorpay Payment Gateway
+![Razorpay Preview](./design/Screenshot%202025-03-31%20101742.png)
+
+When a user proceeds to payment, this is the Razorpay checkout page shown for transaction processing.
+
+---
+
+### ✅ Order Successful Page
+![Order Success Preview](./design/WhatsApp%20Image%202025-04-20%20at%207.18.23%20PM%20(1).jpeg)
+
+This page is shown once payment is successful, confirming that the order has been placed.
+
+---
+
+### 📄 Invoice PDF
+![Invoice Preview](./design/Screenshot%202025-03-31%20101824.png)
+
+Once the payment is complete, a PDF invoice is generated with user details and part-wise breakdown.
 
 ---
 
@@ -75,13 +110,36 @@ This is the login page. Here, the user has entered invalid credentials.
   $apiKey = 'your_razorpay_api_key';
   $apiSecret = 'your_razorpay_secret';
 
-  
+In send_mail.php, add your app-specific email password and sender details:
+  ```php
+  $mail->isSMTP();
+  $mail->Host       = 'smtp.gmail.com';
+  $mail->SMTPAuth   = true;
+  $mail->Username   = 'your_email@gmail.com'; // Your email address
+  $mail->Password   = 'your_app_specific_password'; // App password, not your email password
+  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+  $mail->Port       = 587;
+  $mail->setFrom('your_email@gmail.com', 'Your Name');
+  $mail->addAddress($userEmail); // Receiver's email address
 
-In send_mail.php change these
-   $mail->Username = 'your_email@gmail.com';
-   $mail->Password = 'your_app_password';
+⚠️ Important: For Gmail, make sure to enable 2-step verification and generate an App Password to use here. Do not use your regular email password.
+
+
+📌 Setup Instructions
+Clone the repository:
+git clone https://github.com/yourusername/pc-building-website.git
+
+Configure your .env or connect_database.php with your DB credentials.
+
+Install TCPDF library (already included).
+
+Add your Razorpay API keys in checkout.php.
+
+Add your email and app password in send_mail.php.
+
+Run it on a local server using XAMPP / LAMP.
 
 
 
-Let me know if you'd like me to export this as a `.md` file or include it directly in your project folder for you!
+
 
