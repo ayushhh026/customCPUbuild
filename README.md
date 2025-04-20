@@ -74,9 +74,12 @@ This is the login page. Here, the user has entered invalid credentials.
   ```php
   $apiKey = 'your_razorpay_api_key';
   $apiSecret = 'your_razorpay_secret';
-  In send_mail.php change these
-$mail->Username = 'your_email@gmail.com';
-$mail->Password = 'your_app_password';
+
+  
+
+In send_mail.php change these
+   $mail->Username = 'your_email@gmail.com';
+   $mail->Password = 'your_app_password';
 
 
 
