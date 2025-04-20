@@ -111,19 +111,18 @@ Once the payment is complete, a PDF invoice is generated with user details and p
   $apiSecret = 'your_razorpay_secret';
 
 In send_mail.php, add your app-specific email password and sender details:
-  ```php
-  $mail->isSMTP();
-  $mail->Host       = 'smtp.gmail.com';
-  $mail->SMTPAuth   = true;
-  $mail->Username   = 'your_email@gmail.com'; // Your email address
-  $mail->Password   = 'your_app_specific_password'; // App password, not your email password
-  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-  $mail->Port       = 587;
-  $mail->setFrom('your_email@gmail.com', 'Your Name');
-  $mail->addAddress($userEmail); // Receiver's email address
+   ```php
+   $mail->isSMTP();
+   $mail->Host       = 'smtp.gmail.com';
+   $mail->SMTPAuth   = true;
+   $mail->Username   = 'your_email@gmail.com'; // Your email address
+   $mail->Password   = 'your_app_specific_password'; // App password, not your email password
+   $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+   $mail->Port       = 587;
+   $mail->setFrom('your_email@gmail.com', 'Your Name');
+   $mail->addAddress($userEmail); // Receiver's email address
 
 ⚠️ Important: For Gmail, make sure to enable 2-step verification and generate an App Password to use here. Do not use your regular email password.
-
 
 📌 Setup Instructions
 Clone the repository:
